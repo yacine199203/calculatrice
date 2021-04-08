@@ -40,6 +40,8 @@ spotbugs {
 checkstyle {
     toolVersion '6.16.1'
     config = rootProject.resources.text.fromFile('etc/checkstyle/rules.xml')
+    ignoreFailures = true
+    checkstyleTest.enabled = false
 }
 
 checkstyleMain {
