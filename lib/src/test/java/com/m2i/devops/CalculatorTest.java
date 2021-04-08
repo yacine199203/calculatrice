@@ -49,5 +49,4 @@ public class CalculatorTest {
 		boolean actual2 = calc.mod(3);
 		assertFalse(actual2);
 	}
-	
 }
