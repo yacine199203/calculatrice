@@ -11,6 +11,9 @@ plugins {
     id 'java-library'
     id 'jacoco'
     id 'com.github.spotbugs' version '4.7.0'
+    id 'checkstyle'
+    id 'pmd'
+
 }
 
 repositories {
@@ -33,3 +36,23 @@ spotbugs {
 	ignoreFailures = true
 	spotbugsTest.enabled = false
 	}
+
+checkstyle {
+    toolVersion '6.16.1'
+    config = rootProject.resources.text.fromFile('etc/checkstyle/rules.xml')
+}
+
+checkstyleMain {
+    source ='src/main/java'
+}
+
+checkstyleTest {
+    source ='src/test/java'
+}
+
+pmd {
+	toolVersion '6.0.0'
+	ruleSetConfig = rootProject.resources.text.fromFile('etc/pmd/ruleset.xml')
+  	ignoreFailures = true
+}
+
